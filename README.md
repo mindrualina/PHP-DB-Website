@@ -6,4 +6,7 @@ The main page features a menu with four queries, each containing two subqueries.
 
 The project unifies MySQL, PHP, HTML and CSS creating a harmonious synergy among these technologies.
 
+---
 
+**How to run:**
+You have to download all these files. Using XAMPP application, using Apache and MySQL ports on "Start" mode, you have to go on PHPMyAdmin page and upload the database using "colocviu.sql" file. After that, using "index.php" file with localhost/phpmyadmin/index.php, you can acces the website.
