@@ -237,45 +237,4 @@ ALTER TABLE `comenzi`
 COMMIT;
 
 
---Procedures
 
-DELIMITER //
-
-CREATE PROCEDURE GetPiesaCuPretMaxim()
-BEGIN
-    SELECT p.idp, p.numep, c.pret, c.moneda
-    FROM Catalog c
-    JOIN Piese p ON c.idp = p.idp
-    WHERE c.pret >= ALL (
-        SELECT c2.pret
-        FROM Catalog c2
-    );
-END //
-
-DELIMITER ;
-
---
-
-DELIMITER //
-
-CREATE PROCEDURE GetPreturiMinMax()
-BEGIN
-    SELECT idf, moneda, MIN(pret) AS PretMinim, MAX(pret) AS PretMaxim
-    FROM Catalog
-    GROUP BY idf, moneda;
-END //
-
-DELIMITER ;
-
---
-
-DELIMITER //
-
-CREATE PROCEDURE GetNumarPiesePerIdc()
-BEGIN
-    SELECT idc, COUNT(DISTINCT idp) AS NumarPiese
-    FROM Comenzi
-    GROUP BY idc;
-END //
-
-DELIMITER ;
