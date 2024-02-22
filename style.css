@@ -1,0 +1,272 @@
+
+nav {
+	margin: 30px auto 0;
+	position: relative;
+	width: 1000px;
+	height: 70px;
+	background-color: #6f6f8f;
+	border-radius: 8px;
+	font-size: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center; /* Centrare verticală cu Flexbox */
+    justify-content: center; /* Centrare orizontală cu Flexbox */
+}
+nav a {
+	line-height: 60px;
+	height: 100%;
+	font-size: 24px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+
+    padding: 20px 20px; /* Ajustează padding-ul pentru a se potrivi design-ului */
+    display: block; /* Flex-item-urile ar trebui să fie block-level pentru a permite flex alignment */
+  
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+a:nth-child(1) {
+	width: 250px;
+}
+a:nth-child(2) {
+	width: 250px;
+}
+a:nth-child(3) {
+	width: 250px;
+}
+a:nth-child(4) {
+	width: 250px;
+}
+
+nav .start-interogare1, a:nth-child(1):hover~.animation {
+	width: 250px;
+	left: 0;
+	background-color: #1abc9c;
+}
+nav .start-interogare2, a:nth-child(2):hover~.animation {
+	width: 250px;
+	left: 250px;
+	background-color: #e74c3c;
+}
+nav .start-interogare3, a:nth-child(3):hover~.animation {
+	width: 250px;
+	left: 500px;
+	background-color: #3498db;
+}
+nav .start-interogare4, a:nth-child(4):hover~.animation {
+	width: 250px;
+	left: 750px;
+	background-color: #9b59b6;
+}
+
+
+body {
+	font-size: 25px;
+	font-family: sans-serif;
+	background: #c6c5ce;
+}
+h1 {
+	text-align: center;
+	margin:  0 40px;
+	text-align: center;
+	font-size: 20px;
+	color: #ecf0f1;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
+}
+
+h2 {
+	text-align: center;
+	margin: 25px 0 25px;
+	text-align: center;
+	font-size: 18px;
+	color: #ecf0f1;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
+}
+
+span {
+    color: #2BD6B4;
+}
+
+.header {
+    background-color: #2c3e50; /* Schimbă culoarea după preferințe */
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 7px 0; 
+    position: fixed;
+    bottom: 0;
+    left: 0; 
+    width: 100%;
+	font-size: 15px;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 80px 30px 100px 30px; /* Ajustează marginile pentru a include atât sus cât și jos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adaugă o umbră ușoară pentru un efect 3D subtil */
+	font-size: 18px;
+}
+
+th, td {
+    border: 2px solid #ddd;
+    padding: 5px; /* Mărește padding-ul pentru a face celulele mai spațioase */
+    text-align: center;
+    background-color: white;
+}
+
+th {
+    background-color: #5c87b3;
+    color: white;
+    font-size: 1.1em; /* Mărește puțin dimensiunea fontului pentru anteturile tabelului */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Adaugă o culoare de fundal alternativă pentru rândurile pare */
+}
+
+tr:hover {
+    background-color: #a3a3a3; /* Efectul hover pentru rânduri */
+    cursor: pointer; /* Schimbă cursorul pentru a indica că rândul este interactiv */
+}
+
+tbody tr:hover td {
+    background-color: inherit; /* Asigură-te că celulele din rândurile hover iau culoarea de fundal a rândului */
+}
+
+
+  a {
+	
+	text-align: center;
+	font-size: 20px;
+	color: #ecf0f1;
+	text-shadow: 2px 2px 4px #000000;
+	font-family: 'Cherry Swash', cursive;
+}
+
+.btn {
+    display: inline-block; /* Schimbă la inline-block pentru a permite centrarea */
+    margin: 10px; /* Adaugă o margine pentru spațiu în jurul butoanelor */
+    padding: 20px 30px; /* Padding pentru a mări dimensiunea butonului */
+    background-color: #6f6f8f; /* O culoare de fundal */
+    color: white; /* Culoarea textului */
+    text-align: center; /* Asigură că textul este centrat în buton */
+    border: none; /* Elimină bordura butonului */
+    border-radius: 5px; /* Adaugă borduri rotunjite */
+    cursor: pointer; /* Schimbă cursorul când este deasupra butonului */
+    text-decoration: none; /* Elimină sublinierea textului */
+    transition: background-color 0.3s, transform 0.3s; /* Efecte de tranziție pentru hover */
+	font-size: 15px;
+}
+
+.btn:hover {
+    background-color: #4a6c8f; /* Schimbă culoarea de fundal la hover */
+    transform: scale(1.05); /* Mărește ușor butonul la hover */
+}
+
+
+.container {
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 10px;
+	padding-right: 10px;
+  }
+
+  .buttons-container {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrați conținutul textului */
+    margin: 10px 0px 20px; /* Spațiu în jurul containerului */
+}
+
+.btn-active {
+    background-color: #4a6c8f; /* O culoare de fundal diferită pentru a-l evidenția */
+    color: white;
+	border: 2px solid #ffa500;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}
+
+
+
+h4 {
+	text-align: left;
+	margin: 40px 0 40px 50px;
+	font-size: 25px;
+	color: #000000;
+	text-shadow: 2px 2px 4px #ecf0f1;
+	font-family: 'Cherry Swash', cursive;
+}
+
+hr {
+    margin-top: 50px; /* Adaugă mai mult spațiu deasupra */
+    height: 1px; /* Setează înălțimea liniei */
+    background-color: #ccc; /* Culoarea liniei */
+    margin-bottom: 50px; /* Dacă dorești să adaugi și spațiu dedesubt */
+}
+
+.buttons-rev-container {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrați conținutul textului */
+    margin: 20px 0px 20px; /* Spațiu în jurul containerului */
+}
+
+form {
+    margin: 20px auto; /* Adaugă o marjă în partea de sus și jos, și centrează formularul pe orizontală */
+    padding: 20px; /* Adaugă un spațiu în interiorul formularului */
+    width: 80%; /* Setează lățimea formularului la 80% din containerul său */
+    max-width: 500px; /* Opțional, poți limita lățimea maximă a formularului */
+    background: #f7f7f7; /* Adaugă o culoare de fundal */
+    border-radius: 10px; /* Rotunjește colțurile */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adaugă o umbră ușoară */
+}
+
+label {
+    display: block; /* Face ca fiecare label să ocupe propria sa linie */
+    margin: 10px 0; /* Adaugă spațiu înainte și după fiecare label */
+}
+
+input[type="number"],
+input[type="submit"] {
+    width: calc(100% - 20px); /* Face ca input-ul să ocupe întreaga lățime a formularului, minus padding */
+    margin: 5px 0; /* Adaugă un spațiu mic între input-uri */
+    padding: 10px; /* Adaugă spațiu în interiorul input-urilor */
+	
+}
+
+input[type="submit"] {
+    background-color: #4a6c8f; /* Schimbă culoarea butonului */
+    color: white; /* Schimbă culoarea textului din buton */
+    border: none; /* Elimină bordura implicită */
+    cursor: pointer; /* Schimbă cursorul când este deasupra butonului */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Schimbă culoarea butonului când este hover */
+}

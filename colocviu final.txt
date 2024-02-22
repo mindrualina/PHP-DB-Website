@@ -1,0 +1,225 @@
+--Mindru Alina-Maria, CSC
+--Subiectul S12
+--Baza de date colocviu
+
+CREATE TABLE Furnizori (
+  idf INT PRIMARY KEY,
+  numef VARCHAR(255) NOT NULL,
+  adresa VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE Piese (
+  idp INT PRIMARY KEY,
+  numep VARCHAR(255) NOT NULL,
+  culoare VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE Catalog (
+  idf INT NOT NULL,
+  idp INT NOT NULL,
+  pret DECIMAL(10, 2) NOT NULL CHECK (pret > 0),
+  moneda ENUM('USD', 'EUR', 'RON') DEFAULT 'EUR' NOT NULL,
+  PRIMARY KEY (idf, idp),
+  FOREIGN KEY (idf) REFERENCES Furnizori(idf),
+  FOREIGN KEY (idp) REFERENCES Piese(idp)
+);
+
+
+CREATE TABLE Comenzi (
+  idc INT NOT NULL,
+  idf INT NOT NULL,
+  idp INT NOT NULL,
+  cantitate INT NOT NULL,
+  PRIMARY KEY (idc, idf, idp),
+  FOREIGN KEY (idf) REFERENCES Furnizori(idf),
+  FOREIGN KEY (idp) REFERENCES Piese(idp),
+  FOREIGN KEY (idf, idp) REFERENCES Catalog(idf, idp),
+  UNIQUE (idc, idf, idp, cantitate)
+);
+
+
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (1, 'Materom', 'Cluj-Napoca, Strada Frunzisului, Nr. 88');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (2, 'Autonet', 'Satu Mare, Strada Aurel Vlaicu, Nr. 78');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (3, 'Electro Parts', 'Bucuresti, Strada Electronicii, Nr. 123');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (4, 'Build Materials', 'Iasi, Strada Materialelor, Nr. 101');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (5, 'Green Gadgets', 'Brasov, Strada Ecologica, Nr. 202');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (6, 'TechSupplies', 'Timisoara, Strada Tehnologiei, Nr. 789');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (7, 'Ad Auto Total', 'Bucuresti, Blv. Splaiul Unirii, Nr. 96');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (8, 'Inter Cars Romania ', 'Cluj-Napoca, Strada Campul Painii, Nr. 3');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (9, 'Bosch', 'Jucu, Strada Robert Bosch, Nr. 1');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (10, 'TRW Automotive', 'Timisoara, Strada Macin, Nr. 16');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (11, 'Schaeffler', 'Brasov, Aleea Schaeffler, Nr. 3');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (12, 'Unix Auto', 'Cluj-Napoca, Strada Fabricii, Nr. 118');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (13, 'Augsburg International Impex', 'Cluj-Napoca, Strada Tabacarilor, Nr. 19');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (14, 'Conex Distribution', 'Cluj-Napoca, Strada Orastiei, Nr. 10');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (15, 'Continental', 'Sibiu, Strada Salzburg, Nr. 8');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (16, 'Philips', 'Bucuresti, Soseaua Pipera, Nr. 48');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (17, 'Hyundai', 'Sannicoara, Strada Clujului, Nr. 15');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (18, 'Bendix', 'Bacau, Strada Republicii, Nr. 204');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (19, 'Isuzu', 'Floresti, Strada Avram Iancu, Nr. 402');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (20, 'Mercedes-Benz', 'Cluj-Napoca, Calea Turzii, Nr. 172');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (101, 'Valeo', 'Saint-Denis Cedex, Strada Pleyel, Nr. 70');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (102, 'MANN-FILTER', 'Ludwigsburg, Strada Schwieberdinger Straße, Nr. 126');
+INSERT INTO Furnizori (idf, numef, adresa) VALUES (103, 'Redaelli Ricambi', 'Via per Dolzago, Oggiono LC, Nr. 59');
+
+
+
+
+INSERT INTO Piese (idp, numep, culoare) VALUES (1, 'surub', 'argintiu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (2, 'rulment', 'negru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (3, 'fulie', 'auriu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (4, 'piulita', 'alb');
+INSERT INTO Piese (idp, numep, culoare) VALUES (101, 'arc', 'galben');
+INSERT INTO Piese (idp, numep, culoare) VALUES (102, 'roata dintata', 'negru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (103, 'bucsa', 'rosu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (104, 'ax', 'gri');
+INSERT INTO Piese (idp, numep, culoare) VALUES (105, 'capac', 'portocaliu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (106, 'placa de baza', 'maro');
+INSERT INTO Piese (idp, numep, culoare) VALUES (107, 'inel de etansare', 'negru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (111, 'cilindru hidraulic', 'gri');
+INSERT INTO Piese (idp, numep, culoare) VALUES (112, 'dinte de angrenaj', 'argintiu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (113, 'garnitura', 'rosu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (114, 'arc de compresie', 'auriu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (115, 'ventil', 'albastru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (116, 'maneta', 'portocaliu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (117, 'flansa', 'verde');
+INSERT INTO Piese (idp, numep, culoare) VALUES (118, 'sonda temperatura', 'negru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (119, 'traductor presiune', 'alb');
+INSERT INTO Piese (idp, numep, culoare) VALUES (120, 'disc frana', 'argintiu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (121, 'bujie', 'portocaliu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (122, 'filtru de ulei', 'negru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (123, 'pompa de apa', 'albastru');
+INSERT INTO Piese (idp, numep, culoare) VALUES (124, 'radiator', 'argintiu');
+INSERT INTO Piese (idp, numep, culoare) VALUES (125, 'piulita hexagonala', 'alb');
+INSERT INTO Piese (idp, numep, culoare) VALUES (11, 'balama', 'auriu');
+
+
+
+
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (2, 102, 15.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (9, 2, 12.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (9, 115, 7.50,'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (5, 123, 25.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (6, 107, 10.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (7, 121, 8.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (8, 118, 13.50, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (9, 125, 9.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (12, 104, 35.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (14, 113, 45.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (14, 117, 39.50, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (18, 125, 27.80, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (11, 119, 148.50, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (1, 120, 99.20, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (16, 101, 16.30, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (101, 2, 2.50, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (101, 124, 25, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (102, 111, 21.50, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (102, 116, 11.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (101, 112, 13.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (103, 122, 30.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (2, 2, 6.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (2, 124, 150.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (2, 112, 75.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (12, 11, 3.00, 'EUR');
+INSERT INTO Catalog (idf, idp, pret, moneda) VALUES (15, 11, 2.50, 'EUR');
+
+
+
+
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (11, 9, 2, 110);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (11, 9, 125, 75);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (12, 2, 102, 55);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (12, 2, 2, 234);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (15, 101, 124, 22);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (15, 101, 112, 35);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (16, 103, 122, 15);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (17, 102, 116, 69);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (18, 7, 121, 250);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1001, 18, 125, 75);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1002, 102, 111, 27);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1003, 14, 117, 60);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1004, 16, 101, 202);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1005, 9, 125, 301);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1117, 1, 120, 70);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (12, 2, 112, 35);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1119, 5, 123, 220);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (15, 101, 2, 199);
+INSERT INTO Comenzi (idc, idf, idp, cantitate) VALUES (1122, 9, 2, 300);
+
+
+
+--12.03
+--a)
+SELECT *
+FROM Furnizori
+WHERE adresa LIKE '%8'
+ORDER BY adresa ASC;
+
+--b)
+SELECT *
+FROM Comenzi
+WHERE cantitate > 200 AND cantitate != 300;
+
+
+--12.04
+--a)
+SELECT Comenzi.*
+FROM Comenzi
+JOIN Catalog ON Comenzi.idp = Catalog.idp
+WHERE Catalog.pret BETWEEN 10 AND 20;
+
+--b)
+SELECT c1.idf AS idf1, c2.idf AS idf2
+FROM Comenzi c1
+JOIN Comenzi c2 ON c1.idp = c2.idp AND c1.cantitate = c2.cantitate
+WHERE c1.idf < c2.idf;
+
+
+
+--12.05
+--a)
+SELECT f.numef
+FROM Furnizori f
+WHERE f.idf != 101
+AND EXISTS (
+    SELECT 1
+    FROM Catalog
+    WHERE idf = 101
+)
+AND NOT EXISTS (
+    SELECT p.idp
+    FROM Catalog p
+    WHERE p.idf = 101
+    AND p.idp NOT IN (
+        SELECT fp.idp
+        FROM Catalog fp
+        WHERE fp.idf = f.idf
+    )
+);
+
+
+--b)
+SELECT p.idp, p.numep, c.pret, c.moneda
+FROM Catalog c
+JOIN Piese p ON c.idp = p.idp
+WHERE c.pret >= ALL (
+    SELECT c2.pret
+    FROM Catalog c2
+);
+
+
+
+--12.06
+--a)
+SELECT idf, moneda, MIN(pret) AS PretMinim, MAX(pret) AS PretMaxim
+FROM Catalog
+GROUP BY idf, moneda;
+
+--b)
+SELECT idc, COUNT(DISTINCT idp) AS NumarPiese
+FROM Comenzi
+GROUP BY idc;
+
+
